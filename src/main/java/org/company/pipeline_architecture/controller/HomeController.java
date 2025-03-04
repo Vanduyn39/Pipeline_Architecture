@@ -11,4 +11,5 @@ public class HomeController {
         model.addAttribute("message", "Chào mừng đến với Spring Boot JSP!");
         return "home"; // Điều hướng đến home.jsp
     }
+
 }

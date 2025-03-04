@@ -33,6 +33,12 @@ dependencies {
     implementation("jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.2")
 
     implementation("org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.1")
+    implementation("com.zaxxer:HikariCP")
+    implementation("com.microsoft.sqlserver:mssql-jdbc:12.4.2.jre11")
+    implementation("org.json:json:20240303")
+    implementation("com.rabbitmq:amqp-client:5.24.0")
+    implementation("org.springframework.boot:spring-boot-starter-amqp")
+
 }
 
 tasks.withType<Test> {

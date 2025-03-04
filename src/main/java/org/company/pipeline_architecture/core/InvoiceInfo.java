@@ -20,11 +20,11 @@ public class InvoiceInfo {
     public void setNotes(List<Note> notes) { this.notes = notes; }
 
     public String toString() {
-        return "InvoiceInfo{" +
-                "invoices=" + invoices +
-                ", payments=" + payments +
-                ", creditNotes=" + creditNotes +
-                ", notes=" + notes +
+        return "\nInvoiceInfo{" +
+                "\ninvoices=" + invoices +
+                ", \npayments=" + payments +
+                ", \ncreditNotes=" + creditNotes +
+                ", \nnotes=" + notes +
                 '}';
     }
 

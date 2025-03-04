@@ -18,8 +18,12 @@ public abstract class PipelineBase<T> {
     }
 
     public T processFilters(T input) {
-        for (IFilter<T> filter : filters) {
-            input = filter.execute(input);
+        try{
+            for (IFilter<T> filter : filters) {
+                input = filter.execute(input);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return input;
     }
