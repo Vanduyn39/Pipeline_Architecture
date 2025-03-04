@@ -4,6 +4,8 @@ public class CreditNote {
     private long creditNoteId;
     private String note;
     private boolean isCancellation;
+    private String creditId;
+    private double availableCredit;
 
     public long getCreditNoteId() { return creditNoteId; }
     public void setCreditNoteId(long creditNoteId) { this.creditNoteId = creditNoteId; }
@@ -13,6 +15,22 @@ public class CreditNote {
 
     public boolean isCancellation() { return isCancellation; }
     public void setCancellation(boolean cancellation) { isCancellation = cancellation; }
+
+    public String getCreditId() {
+        return creditId;
+    }
+
+    public void setCreditId(String creditId) {
+        this.creditId = creditId;
+    }
+
+    public double getAvailableCredit() {
+        return availableCredit;
+    }
+
+    public void setAvailableCredit(double availableCredit) {
+        this.availableCredit = availableCredit;
+    }
 
     public String toString() {
         return "CreditNote{" +

@@ -1,6 +1,9 @@
 package org.company.pipeline_architecture.client;
 
+import org.company.pipeline_architecture.controller.HomeController;
+import org.company.pipeline_architecture.core.CreditNote;
 import org.company.pipeline_architecture.core.Message;
+import org.company.pipeline_architecture.core.Payment;
 import org.company.pipeline_architecture.core.entities.IFilter;
 import org.company.pipeline_architecture.core.entities.IMessage;
 import org.company.pipeline_architecture.pipes.Pipeline;
@@ -29,6 +32,15 @@ public class Main {
 //        Pipeline pipeline = new Pipeline(filters);
 //
 //        pipeline.processFilters(message);
+        HomeController controller = new HomeController();
 
+        CreditNote creditNote = new CreditNote();
+        creditNote.setAvailableCredit(500.0);
+
+        Payment payment = new Payment();
+        payment.setAmount(200.0);
+
+        String result = controller.makePayment(creditNote, payment);
+        System.out.println(result); // In ra kết quả thanh toán
     }
 }

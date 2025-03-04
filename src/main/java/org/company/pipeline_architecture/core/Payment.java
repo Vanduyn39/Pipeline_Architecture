@@ -5,6 +5,7 @@ public class Payment {
     private long custId;
     private String cardNumber;
     private String cvv;
+    private double amount;
 
     public long getPaymentId() { return paymentId; }
     public void setPaymentId(long paymentId) { this.paymentId = paymentId; }
@@ -17,6 +18,15 @@ public class Payment {
 
     public String getCvv() { return cvv; }
     public void setCvv(String cvv) { this.cvv = cvv; }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
     public String toString() {
         return "Payment{" +
                 "paymentId=" + paymentId +
