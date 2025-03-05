@@ -39,6 +39,9 @@ dependencies {
     implementation("com.rabbitmq:amqp-client:5.24.0")
     implementation("org.springframework.boot:spring-boot-starter-amqp")
 
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+
 }
 
 tasks.withType<Test> {

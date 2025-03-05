@@ -3,6 +3,7 @@ package org.company.pipeline_architecture.services;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.company.pipeline_architecture.core.Note;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,14 +18,16 @@ public class DatabaseService {
     private static HikariDataSource dataSource;
 
     //change this to connect to MSSQL
-    private static String url = "localhost\\SQLEXPRESS";
-    private static String dbName = "OrderProcessing";
-    private static String dbUsername = "dkminh";
-    private static String dbPassword = "12345";
+    @Value("${spring.datasource.url}")
+    private static String url;
+    @Value("${spring.datasource.username}")
+    private static String dbUsername;
+    @Value("${spring.datasource.password}")
+    private static String dbPassword;
 
     static {
 
-        config.setJdbcUrl( "jdbc:sqlserver://" +  url +":1433;databaseName=" + dbName+ ";encrypt=true;trustServerCertificate=true;" );
+        config.setJdbcUrl( url);
         config.setUsername(dbUsername);
         config.setPassword(dbPassword);
 

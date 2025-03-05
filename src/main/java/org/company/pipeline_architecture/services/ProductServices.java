@@ -1,0 +1,20 @@
+package org.company.pipeline_architecture.services;
+
+import org.company.pipeline_architecture.core.Product;
+import org.company.pipeline_architecture.core.entities.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+import java.util.List;
+
+@Service
+public class ProductServices {
+
+    @Autowired
+    private ProductRepository productRepository;
+
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
+    }
+}

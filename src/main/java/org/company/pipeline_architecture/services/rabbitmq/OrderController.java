@@ -15,6 +15,7 @@ public class OrderController {
     @PostMapping("/send")
     public ResponseEntity<Object> sendOrder(@RequestBody String order) {
         orderProducer.sendOrder(order);
+        System.out.println(order);
         return new ResponseEntity<>("push-message: " + order, HttpStatus.OK);
     }
 }
