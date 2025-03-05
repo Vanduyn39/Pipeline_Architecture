@@ -49,6 +49,8 @@ public class CheckInventoryProcess implements IFilter<IMessage> {
 
         JSONObject jsonObject = new JSONObject(message.getFileContent());
 
+        System.out.println(jsonObject.toString());
+
         // Truy xuất thông tin về đơn hàng
         JSONObject orderInfo = jsonObject.getJSONObject("order_info");
 

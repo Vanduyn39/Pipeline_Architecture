@@ -22,16 +22,6 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-//        Message message = new Message();
-//        message.setFileContent(Files.readString(Path.of("src/main/java/org/company/pipeline_architecture/client/order_data.json")));
-//
-//        List<IFilter<IMessage>> filters = new ArrayList<>();
-//        filters.add(new CheckInventoryProcess());
-//        filters.add(new CheckDeliveryRatesProcess());
-//        filters.add(new CheckPaymentCapacity());
-//        Pipeline pipeline = new Pipeline(filters);
-//
-//        pipeline.processFilters(message);
         HomeController controller = new HomeController();
 
         CreditNote creditNote = new CreditNote();

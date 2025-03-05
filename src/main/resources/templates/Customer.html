@@ -26,7 +26,7 @@
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th>Mã đơn</th>
+            <th>STT</th>
             <th>Sản phẩm</th>
             <th>Giá (VNĐ)</th>
             <th>Số lượng</th>
@@ -35,7 +35,7 @@
         </tr>
         </thead>
         <tbody id="order-list">
-        <!-- Hàng sản phẩm mẫu -->
+
         </tbody>
     </table>
     <button id="add-order" class="btn btn-success mb-3">Thêm sản phẩm</button>
@@ -80,19 +80,19 @@
     <button id="submit-order" class="btn btn-primary">Gửi đơn hàng</button>
 </div>
 
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    const products = /*[[${products}]]*/ [];
+    console.log("Danh sách sản phẩm:", products);
+    /*]]>*/
+</script>
+
 <script>
     let orderCounter = 1;
 
-    // Danh sách sản phẩm có sẵn
-    const products = [
-        { id: 1, name: "Áo thun", price: 200000 },
-        { id: 2, name: "Quần jeans", price: 500000 },
-        { id: 3, name: "Giày sneaker", price: 1000000 }
-    ];
-
     // Thêm sản phẩm mới vào bảng
     function addOrderRow() {
-        let productOptions = products.map(p => `<option value="${p.id}" data-price="${p.price}">${p.name}</option>`).join("");
+        let productOptions = products.map(p => `<option value="${p.productId}" data-price="${p.price}">${p.name}</option>`).join("");
 
         let newRow = `<tr>
                 <td>${orderCounter++}</td>
@@ -164,20 +164,44 @@
 
     // Gửi dữ liệu JSON về backend
     $("#submit-order").click(function () {
+
+        //Get dòng đơn hàng
         let orders = [];
         $("#order-list tr").each(function () {
             let selectedProduct = $(this).find(".productSelect option:selected");
             let order = {
                 orderId: $(this).find("td:first").text(),
+                custId: 1,
                 productId: selectedProduct.val(),
                 quantity: $(this).find(".quantity").val(),
-                price: selectedProduct.data("price"),
-                total: $(this).find(".total").val().replace(/,/g, '')
+                description: "Sample Order"
             };
             orders.push(order);
         });
 
-        let orderData = { order_info: orders };
+        //Lấy dữ liệu giao hàng
+        let delivery = {
+            nodeId: 1,
+            note: $("#note").val(),
+            deliveryAdd: $("#deliveryAdd").val(),
+            isDelivery: false
+        }
+
+        //Lấy dữ liệu payment
+        let payment = {
+            paymentId: 1,
+            custId: 1,
+            cardNumber: $("#cardNumber").val(),
+            cvv: $("#cvv").val()
+        }
+
+        let orderData ={
+            order_info: {
+                orders: orders,
+                delivery: delivery,
+                payments: payment
+            }
+        }
 
         console.log("Dữ liệu gửi đi:", JSON.stringify(orderData, null, 2));
 
