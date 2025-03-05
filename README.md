@@ -7,3 +7,7 @@
 ## Setup RabbitMQ (Message queue)
 - Cài đặt và setup RabbitMQ
 - Cấu hình tên đăng nhập, cổng tại application.properties nếu setup khác mặc định.
+
+##Truy cập trang web
+http://localhost:8080
+http://localhost:8080/order
